@@ -33,14 +33,14 @@ results_directory <- paste0(rootdir,"results/")
 dir.create(results_directory)
 
 #### Stack des donnees NDMI  
-NDMIstack <- paste0(data_dir,'All_NDMI_rci.tif') # tile3
+NDMIstack <- paste0(data_dir,'All_NDMI_rci_20171009.tif') # tile3
 #### Liste des identifiant correspondant 
-NDMIsceneID <- paste0(data_dir,'tableID_NDMI_rci.csv')
+NDMIsceneID <- paste0(data_dir,'tableID_NDMI_rci_20171009.csv')
 
 #### Stack des donnees NDVI 
-NDVIstack <- paste0(data_dir,'All_NDVI_rci.tif')
+NDVIstack <- paste0(data_dir,'All_NDVI_rci_20171009.tif')
 #### Liste des identifiant correspondant 
-NDVIsceneID <- paste0(data_dir,'tableID_NDVI_rci.csv')
+NDVIsceneID <- paste0(data_dir,'tableID_NDVI_rci_20171009.csv')
 
 #### Annee de demarrage de la periode historique
 historical_year_beg <- 2007
