@@ -13,7 +13,7 @@
 #### Repertoire racine
 #rootdir <- "/media/dannunzio/OSDisk/Users/dannunzio/Documents/countries/cote_ivoire/trainings_cote_ivoire/training_alertes_oct2017/"
 rootdir <- "~/rci_ws_20171022/"
-
+dir.create(rootdir)
 #### Repertoire des donnees d'entree
 data_dir <- paste0(rootdir,"data/")
 dir.create(data_dir)
@@ -23,7 +23,9 @@ dir.create(data_dir)
 ####### NDMI / NDVI export https://code.earthengine.google.com/197d0ead4a094c8ada0a069485419677
 ####################################################################################################################
 setwd(data_dir)
-system(sprintf("echo 4/SGn-wOSw1u0Pt2kW3Sctd_4nyrYX0ZMsn2YcJWvYejc | gdrive download 0B48Ol_Tb6ewSX1RVcEZCRm9lWGM --force"))
+#system(sprintf("echo 4/SGn-wOSw1u0Pt2kW3Sctd_4nyrYX0ZMsn2YcJWvYejc | gdrive download 0B48Ol_Tb6ewSX1RVcEZCRm9lWGM --force"))
+system("wget https://www.dropbox.com/s/hj3i0bn644vi1hl/data_rci_test_bfast.zip?dl=0")
+system("unzip data_rci_test_bfast.zip?dl=0")
 setwd(rootdir)
 
 #### Repertoire des resultats
