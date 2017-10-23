@@ -49,8 +49,12 @@ pts <- spTransform(pt_df_geo,proj_utm)
 pts$FNF <- extract(fnf,pts@coords)
 
 ################# Intersecter avec les regions de la Cote d'Ivoire
-proj4string(rci) <- proj4string(pt_df_geo)
-pts$region <- over(pt_df_geo,rci)$ADM1_NAME
+rci <- spTransform(rci,proj_utm) 
+pts$region <- over(pts,rci)$ADM1_NAME
 
 ################# Afficher les alertes en fonction du masque et de la region
 table(pts$region,pts$FNF)
+
+################# Afficher le graphe des points alerte
+plot(rci)
+plot(pts[pts$FNF ==1,],add=T)
