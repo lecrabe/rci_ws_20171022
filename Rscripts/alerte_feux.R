@@ -20,10 +20,6 @@ packages <- function(x){
 options(stringsAsFactors = FALSE)
 packages(raster)
 packages(rgdal)
-packages(bfastSpatial)
-packages(stringr)
-packages(parallel)
-packages(devtools)
 packages(ggplot2)
 packages(foreign)
 
