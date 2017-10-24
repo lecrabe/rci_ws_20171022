@@ -18,7 +18,7 @@ packages(ggplot2)
 packages(foreign)
 
 
-setwd("/media/dannunzio/OSDisk/Users/dannunzio/Documents/countries/cote_ivoire/gis_cote_ivoire/Shapefile_WSH/")
+setwd("/media/dannunzio/OSDisk/Users/dannunzio/Documents/countries/cote_ivoire/trainings_cote_ivoire/training_alertes_oct2017/data/")
 
 df <- read.dbf("bckUP_SWH_RCI.dbf")
 df$Image <- as.character(df$Image)
