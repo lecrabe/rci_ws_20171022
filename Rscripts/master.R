@@ -38,7 +38,7 @@ system(sprintf("echo %s | drive init",
 system(sprintf("drive list"))
 
 base <- '_rci_20171025'
-data_input <- c(paste0(c('All_NDMI','All_NDMI'),base,'.tif'),
+data_input <- c(paste0(c('All_NDMI','All_NDVI'),base,'.tif'),
                 paste0(c('tableID_NDMI','tableID_NDVI'),base,'.csv')
                 )
 
