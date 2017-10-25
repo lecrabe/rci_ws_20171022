@@ -20,27 +20,45 @@ dir.create(data_dir)
 
 ####################################################################################################################
 ####### Les donnees d'entree proviennent de GEE et sont composees de tous les indices NDVI et NDMI sur la periode
-####### NDMI / NDVI export https://code.earthengine.google.com/197d0ead4a094c8ada0a069485419677
 ####################################################################################################################
+
+####### EXECUTER LE SCRIPT GEE -> EXERCICE 2017-10-26 : https://code.earthengine.google.com/049a1836ce7b4a7bc93aff7148aa2ead
+
+####### TELECHARGER DEPUIS GoogleDRIVE vers SEPAL
+####### Exemple de cle autorisation : 4/QHH2DucZ-MI-GY0HnG6JyEfjMpfVvJsu6_TmHqbxBgQ
 setwd(data_dir)
-#system(sprintf("echo 4/SGn-wOSw1u0Pt2kW3Sctd_4nyrYX0ZMsn2YcJWvYejc | gdrive download 0B48Ol_Tb6ewSX1RVcEZCRm9lWGM --force"))
-system("wget https://www.dropbox.com/s/hj3i0bn644vi1hl/data_rci_test_bfast.zip?dl=0")
-system("unzip data_rci_test_bfast.zip?dl=0")
-setwd(rootdir)
+system(sprintf("echo %s | drive init",
+               "VOTRE_CLE_AUTORISATION"))
+
+
+system(sprintf("drive list"))
+
+base <- '_rci_20171025'
+data_input <- paste0(c('All_NDMI','All_NDMI','tableID_NDMI','tableID_NDVI'),base,'.tif')
+
+for(data in data_input){
+  system(sprintf("drive pull %s",
+                 data))
+}
+
+#### SOLUTION VIA DROPBOX
+# system(sprintf("echo 4/SGn-wOSw1u0Pt2kW3Sctd_4nyrYX0ZMsn2YcJWvYejc | gdrive download 0B48Ol_Tb6ewSX1RVcEZCRm9lWGM --force"))
+# system("wget https://www.dropbox.com/s/hj3i0bn644vi1hl/data_rci_test_bfast.zip?dl=0")
+# system("unzip data_rci_test_bfast.zip?dl=0")
 
 #### Repertoire des resultats
 results_directory <- paste0(rootdir,"results/")
 dir.create(results_directory)
 
 #### Stack des donnees NDMI  
-NDMIstack <- paste0(data_dir,'All_NDMI_rci_20171009.tif') # tile3
+NDMIstack <- paste0(data_dir,'All_NDMI',base,'.tif') # tile3
 #### Liste des identifiant correspondant 
-NDMIsceneID <- paste0(data_dir,'tableID_NDMI_rci_20171009.csv')
+NDMIsceneID <- paste0(data_dir,'tableID_NDMI',base,'.csv')
 
 #### Stack des donnees NDVI 
-NDVIstack <- paste0(data_dir,'All_NDVI_rci_20171009.tif')
+NDVIstack <- paste0(data_dir,'All_NDVI',base,'.tif')
 #### Liste des identifiant correspondant 
-NDVIsceneID <- paste0(data_dir,'tableID_NDVI_rci_20171009.csv')
+NDVIsceneID <- paste0(data_dir,'tableID_NDVI',base,'.csv')
 
 #### Annee de demarrage de la periode historique
 historical_year_beg <- 2007
