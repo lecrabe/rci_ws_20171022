@@ -14,6 +14,10 @@
 #rootdir <- "/media/dannunzio/OSDisk/Users/dannunzio/Documents/countries/cote_ivoire/trainings_cote_ivoire/training_alertes_oct2017/"
 rootdir <- "~/rci_ws_20171022/"
 dir.create(rootdir)
+
+#### Repertoire des scripts
+scriptdir <- paste0(rootdir,"Rscripts/")
+
 #### Repertoire des donnees d'entree
 data_dir <- paste0(rootdir,"data/")
 dir.create(data_dir)
@@ -76,19 +80,19 @@ monitoring_year_end <- 2017
 ###################################################################################
 
 #### Standardisation des donnees d'entree
-source("Rscripts/input_data.R",echo = T)
+source(paste0(scriptdir,"input_data.R"),echo = T)
 
 #### Execution BFAST avec les parametres "all"
-source("Rscripts/example_1.R",echo = T)
+source(paste0(scriptdir,"example_1.R"),echo = T)
 
 #### Execution BFAST avec les parametres "ROC"
-source("Rscripts/example_2.R",echo = T)
+source(paste0(scriptdir,"example_2.R"),echo = T)
 
 #### Execution BFAST avec les parametres "2007 --->"
-source("Rscripts/example_3.R",echo = T)
+source(paste0(scriptdir,"example_3.R"),echo = T)
 
 #### Comparaison des donnees de reference
 #### source("Rscripts/reference_data.R")
 
 #### Classification des magnitudes de changement
-source("Rscripts/magnitude_threshold.R")
+source(paste0(scriptdir,"magnitude_threshold.R"),echo = T)
